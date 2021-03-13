@@ -18,7 +18,26 @@ void main() {
 class DicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Center(
+      child: Row(
+        children: [
+          Expanded( //2
+            flex: 1, //3
+            child: Image.asset('images/dice1.png'), //1
+          ),
+          Expanded(
+            flex: 1,
+            child: Image(
+              image: AssetImage('images/dice1.png'), //1
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
+
+//1 画像ファイルをローカルに持っている場合はImageウィジェットにAssetImageでパス。yamlにassets image設定することも忘れず
+//  書き方2つ 上の方が楽
+//2 Expandedクラスは、Imageウィジェットを真ん中に表示する？テキストは無理。画面オーバーしても収めてくれる
+//3 flexは横幅に対して割合を決めるもの。今回はなくても元から1:1だから無くても変わらない。
