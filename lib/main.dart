@@ -16,9 +16,11 @@ void main() {
 }
 
 class DicePage extends StatelessWidget {
+  // var leftDiceNumber = 2; //4
+
   @override
   Widget build(BuildContext context) {
-    var leftDiceNumber = 2;
+    var leftDiceNumber = 2; //4
 
     return Center(
       child: Row(
@@ -53,3 +55,4 @@ class DicePage extends StatelessWidget {
 //  書き方2つ 上の方が楽
 //2 Expandedクラスは、Imageウィジェットを真ん中に表示する？テキストは無理。画面オーバーしても収めてくれる
 //3 flexは横幅に対して割合を決めるもの。今回はなくても元から1:1だから無くても変わらない。
+//4 build内の変数はhot reloadに対応する？クラス内の方は再ビルドしたときに変化に対応する
