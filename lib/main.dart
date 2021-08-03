@@ -15,12 +15,17 @@ void main() {
   );
 }
 
-class DicePage extends StatelessWidget {
-  // var leftDiceNumber = 2; //4
+class DicePage extends StatefulWidget {
+  @override
+  _DicePageState createState() => _DicePageState();
+}
+
+class _DicePageState extends State<DicePage> {
+  int leftDiceNumber = 1; //4 //5
 
   @override
   Widget build(BuildContext context) {
-    var leftDiceNumber = 2; //4
+    // var leftDiceNumber = 2; //4
 
     return Center(
       child: Row(
@@ -29,10 +34,13 @@ class DicePage extends StatelessWidget {
             flex: 1, //3
             child: FlatButton(
               onPressed: (){
-                print('left button got pressed');
+                setState(() {
+                  leftDiceNumber = 3;
+                  print('diceNumber = $leftDiceNumber');
+                });
               },
-              child: Image.asset('images/dice$leftDiceNumber.png'),
-            ), //1
+              child: Image.asset('images/dice$leftDiceNumber.png'), //1
+            ),
           ),
           Expanded(
             flex: 1,
@@ -56,3 +64,4 @@ class DicePage extends StatelessWidget {
 //2 Expandedクラスは、Imageウィジェットを真ん中に表示する？テキストは無理。画面オーバーしても収めてくれる
 //3 flexは横幅に対して割合を決めるもの。今回はなくても元から1:1だから無くても変わらない。
 //4 build内の変数はhot reloadに対応する？クラス内の方は再ビルドしたときに変化に対応する
+//5 int型に指定しまった場合integerしか代入できない
